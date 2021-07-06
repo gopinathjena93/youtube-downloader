@@ -3,6 +3,7 @@ const express =  require('express');
 const app = express();
 const ytdl = require("ytdl-core");
 const fetch = require('node-fetch');
+const port = process.env.PORT || 3000
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -31,4 +32,6 @@ app.get("/",function(req,res) {
     console.log("Hello World")
 })
 
-app.listen(5000);
+app.listen(port,() => {
+	console.log(`Server Start at 3000 ${port}`);
+})
