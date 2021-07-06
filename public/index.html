@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Youtube Video Downloader</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="youtube-download.css">           
+   </head>
+
+   <body>
+      <div class="jumbotron text-center">
+         <h1>Youtube Video Downloader</h1>
+         <p>Paste Youtube Url below and download the video</p>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" name="videoURL" id="videoURL" value="">
+               </div>
+               <div class="col-sm-2" id="search_div">
+                  <input type="button" class="btn btn-primary" value="Search Video" onclick="fetchData()" >
+                  <img src="am-spinner.gif" width="35px" style="display: none">
+               </div>
+               
+            </div>
+            <div class="col-sm-5 col-md-offset-3" style="display: none" id="video_details">
+               <h4 style="text-align: center;"> Video Details </h4>
+               <div class="card card-price">
+                  <div class="card-img" id="thumbnails">
+                     <a href="#">
+                        <img src="http://placeimg.com/640/320/nature/grayscale" class="img-responsive" style="height: 266px; width: 455px;">                       
+                     </a>
+                  </div>
+                  <div class="card-body" id="card-body">
+                     
+                     <div class="title"></div>
+                     <ul class="details">
+                        <li>Video Length 11:87</li>                    
+                     </ul>
+                     <div class="col-md-6">
+                     <select id="format" class="form-control"></select></div>
+                     <div class="col-md-6">
+                        <a href="#" class="btn btn-primary" onclick="DownloadNow()">
+                        Download Now </a>
+                     </div>
+                  </div>
+               </div>
+            </div>        
+         </div>
+      </div>
+      </div>
+   </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+<script src="youtube-download.js"></script>
