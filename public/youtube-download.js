@@ -1,12 +1,10 @@
 const host = "https://gopi-youtube-downloader.herokuapp.com/";
-//const host = "http://localhost:5000/";
-
 async function fetchData() {
     
     const videoURL = document.getElementById("videoURL").value
 
-    if(videoURL.length <= 0 ) {
-      alert('Please Enter Youtube Video Url'); return false;
+    if(videoURL.length <= 0 ) {     
+      custom_alert('Please Enter Youtube Video Url','error');  return false;
     }
     $("#search_div img").fadeIn();
     $("#search_div input[type='button']").prop("disabled",true);
@@ -16,8 +14,8 @@ async function fetchData() {
     const res = await result.json(); 
     if(res.status=="error") {      
       $("#search_div img").fadeOut();
-      $("#search_div input[type='button']").prop("disabled",false);
-      alert(res.message); return false;
+      $("#search_div input[type='button']").prop("disabled",false);   
+      custom_alert(res.message,res.status);  return false;
     }
 
     console.log(res.status); 
@@ -53,4 +51,12 @@ function DownloadNow() {
     let videoURL = document.getElementById("videoURL").value;
  let itag = document.getElementById("format").value;
  window.open(host + "download?videoURL="+videoURL+"&itag="+itag);
+}
+
+function custom_alert(message,statusType){
+   notif({
+      msg: message,
+      type: statusType,
+      position: "center"
+   });
 }
