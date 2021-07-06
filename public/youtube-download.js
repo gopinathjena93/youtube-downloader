@@ -1,4 +1,6 @@
-const host = "http://localhost:5000/";
+const host = "https://gopi-youtube-downloader.herokuapp.com/";
+//const host = "http://localhost:5000/";
+
 async function fetchData() {
     
     const videoURL = document.getElementById("videoURL").value
