@@ -50,7 +50,10 @@ async function fetchData() {
 function DownloadNow() {
     let videoURL = document.getElementById("videoURL").value;
  let itag = document.getElementById("format").value;
- window.open(host + "download?videoURL="+videoURL+"&itag="+itag);
+ const videoTitle = $("#card-body div.title").html();
+const videoTitleSlug = convertToSlug(videoTitle);
+
+ window.open(host + "download?videoURL="+videoURL+"&itag="+itag+"&videoTitle="+videoTitleSlug);
 }
 
 function custom_alert(message,statusType){
@@ -59,4 +62,12 @@ function custom_alert(message,statusType){
       type: statusType,
       position: "center"
    });
+}
+
+function convertToSlug(Text) {
+    return Text
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
 }
