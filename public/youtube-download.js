@@ -24,9 +24,11 @@ async function fetchData() {
    
     let option_html = "";
     res.formats.map((format) => {
-        if(format.container == "mp4" && format.hasAudio && format.qualityLabel!=null) {
-            option_html +=`<option value = "${format.itag}">${format.container} - ${format.qualityLabel}</option>`  
-        }
+        if (format.container == "mp4" && format.hasAudio && format.qualityLabel != null) {
+			//console.log(format)
+			const videoSize = bytesToSize(format.contentLength);
+			option_html += `<option value = "${format.itag}">${format.container} - ${format.qualityLabel} - ${videoSize}</option>`
+		}
         document.getElementById("format").innerHTML = option_html;       
        // console.log(format.mimeType)
     })
